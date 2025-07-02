@@ -1,235 +1,308 @@
+
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+margin: 0;
+padding: 0;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
 
 .container {
-  background-color: #fffcfc;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 1500px;
-  padding: 110px;
+background-color: #ffffff;
+border-radius: 8px;
+width:100%;
+max-width: 1200px;
+padding: 20px;
+margin: 0 auto;
+text-align: center;
+box-sizing: border-box;
+background-attachment: scroll;
 }
 
-header {
-  text-align: center;
+
+@media (max-width: 768px) {
+.container {
+    width: 95%; /* Augmente la largeur sur les écrans plus petits */
+    padding: 15px; /* Ajuste le padding sur les écrans plus petits */
 }
+}
+
+@media (max-width: 480px) {
+.container {
+    width: 100%; /* Utilise toute la largeur disponible sur les très petits écrans */
+    padding: 10px; /* Réduit le padding pour les très petits écrans */
+}
+}
+
 
 header h1 {
-  color: #4a8a4a;
-  margin-bottom: 40px;
+color: #c64a11;
+margin-bottom: 20px;
 }
 
+
 .radio-buttons {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
+display: flex;
+align-items: center; /* Aligne les éléments verticalement au centre */
+justify-content: center;
+margin-bottom: 20px;
+padding-top: 20px;
+}
+
+.radio-buttons-txt {
+font-size: 20px;
+font-weight: bold;
+margin-right: 10px; /* Espace entre le texte et les boutons radio */
+color: #145a8d;
 }
 
 .radio-buttons label {
-  margin-right: 30px;
+display: flex;
+align-items: center; /* Aligne le texte du label et le bouton radio */
+margin-right: 15px; /* Espace entre les labels */
 }
 
-.estimation, .reference-price {
-  margin-bottom: 30px;
-  text-align: center;
+.radio-buttons input[type="radio"] {
+margin-right: 5px; /* Espace entre le bouton radio et le texte du label */
+}
+.radio-buttons label {
+margin-right: 20px;
+}
+
+.estimation {
+margin-bottom: 20px;
+color: #145a8d;
+
 }
 
 .estimation label {
-  display: block;
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 9px;
+/*display: block;*/
+font-size: 18px;
+Font-weight: bold;
+margin-bottom: 9px;
+
 }
 
 .estimation input {
-  width: 50%;
-  padding: 8px;
-  border: 3px solid #ccc;
-  border-radius: 8px;
+width: 30%;
+padding: 6px;
+border: 2px solid #ccc;
+border-radius: 8px;
+font-size: 17px;
+color: #0e630e;
+font-weight: bold;
+
 }
 
-.reference-price {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.price {
-  color: #000000;
-}
-
-.competitors {
-  margin-bottom: 20px;
+.competitors-section {
+margin: 20px 0;
 }
 
 .add-competitor {
-  width: 100%;
-  padding: 10px;
-  background-color: #4CAF50;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  margin-bottom: 10px;
-  cursor: pointer;
+padding: 10px 20px;
+background-color: #145a8d;
+color: #fff;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+float: right;
+margin-top: 10px; /* Pour ajouter de l'espace au-dessus si nécessaire */
+
+}
+.competitors-table, .results-table {
+width: 100%;
+border-collapse: collapse;
+margin: 0 auto;
+background-color: #fff;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+border-radius: 8px;
+overflow: hidden;
 }
 
-.competitor {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
+.competitors-table th, .competitors-table td,
+.results-table th, .results-table td {
+padding: 12px;
+text-align: left;
 }
 
-.competitor span {
-  flex: 1;
-  text-align: center;
+.competitors-table th, .results-table thead {
+background-color: #145a8d;
+color: #fff;
 }
 
-.competitor .rank {
-  flex: 0 0 30px;
+.competitors-table tr:nth-child(even), .results-table tr:nth-child(even) {
+background-color: #f9f9f9;
 }
 
-.competitor .deviation {
-  color: #d32f2f;
+.competitors-table tr:last-child td, .results-table tr:last-child {
+border-bottom: none;
 }
 
-.competitor .delete-btn {
-  background: none;
-  border: none;
-  color: #000000;
-  cursor: pointer;
-}
-.competitor.new {
-  background-color: #ffffff; /* White color for new competitors */
+.results {
+display: flex;
+justify-content: center; /* Centre les tableaux */
+gap: 20px; /* Espacement entre les tableaux */
 }
 
-.removed {
-  background-color: #ffffff;
+.results-table {
+width: 45%; /* Assurez-vous que les tableaux prennent chacun environ la moitié de la largeur disponible */
+table-layout: fixed; /* Force une largeur fixe des colonnes */
+word-break: break-word; /* Gère les mots longs */
+}
+
+.results-table th, .results-table td {
+overflow: hidden; /* Cache le débordement */
+white-space: nowrap; /* Empêche le texte de s'étendre sur plusieurs lignes */
+text-overflow: ellipsis; /* Ajoute des points de suspension pour le texte débordant */
+}
+
+.results-table .name-column {
+width: 150px; /* Largeur fixe pour la colonne des noms */
+}
+
+.results-table .offer-column {
+width: 100px; /* Largeur fixe pour la colonne des offres */
+}
+
+.results-table .gap-column {
+width: auto; /* Ajuste automatiquement pour occuper l'espace restant */
+}
+
+
+
+
+.reference-price {
+font-size: 18px;
+font-weight: bold;
+color: #c64a11;
+margin-bottom: 20px;
+}
+
+.price {
+color: #0e630e;
 }
 
 footer {
-  display: flex;
-  justify-content: space-between;
+display: flex;
+flex-direction: column;
+align-items: center; /* Aligne les éléments horizontalement au centre */
+margin-top: 80px;
+justify-content: center; /* Centre les boutons horizontalement */
+gap: 20px; /* Augmente l'espace entre les boutons */
+
 }
 
-footer button {
-  padding: 10px;
-  width: 48%;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+.footer-buttons {
+display: flex;
+justify-content: center; /* Centrer les boutons */
+gap: 20px; /* Espacement entre les boutons */
+padding: 10px;
+width: 50%;
+float: left;
+margin-left: 40px;
+margin-bottom: 20px; /* Espace entre ces boutons et le bouton "Imprimer" */
+
 }
 
-footer .calculate {
-  background-color: #e3e2e2;
-  color: #000;
+footer .calculate, footer .initialize {
+background-color: #e3e2e2;
+color: #000;
+border: none;
+border-radius: 4px;
+
+padding: 10px;
+width: 48%; /* Largeur des boutons */
+
+
+cursor: pointer;
 }
 
-footer .initialize {
-  background-color: #e3e2e2;
-  color: #000;
+footer .calculate:hover, footer .initialize:hover {
+background-color: #ccc;
+}
+
+h2 {
+font-size: 24px;
+color: #c64a11;
+margin-top: 20px;
+margin-bottom: 10px;
+float: left;
+
+}
+
+
+
+.modal-content label {
+display: block;
+margin-bottom: 8px;
+}
+
+.modal-content input {
+margin-bottom: 20px;
+padding: 10px;
+border: 1px solid #ddd;
+border-radius: 4px;
+width: calc(100% - 22px);
+}
+
+.modal-content button {
+background-color: #145a8d;
+color: #fff;
+border: none;
+padding: 10px;
+border-radius: 4px;
+cursor: pointer;
+width: 100%;
 }
 
 .modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
+display: none; /* Cacher la modal par défaut */
+position: fixed;
+z-index: 1;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+overflow: auto;
+background-color: rgb(0,0,0);
+background-color: rgba(0,0,0,0.4);
+padding-top: 60px;
 }
 
 .modal-content {
-  background-color: #fff;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-  max-width: 400px;
-  border-radius: 8px;
-  position: relative;
+background-color: #fefefe;
+margin: 5% auto;
+padding: 20px;
+border: 1px solid #888;
+width: 80%;
 }
 
 .close-btn {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
+color: #aaa;
+float: right;
+font-size: 28px;
+font-weight: bold;
 }
 
 .close-btn:hover,
 .close-btn:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
+color: black;
+text-decoration: none;
+cursor: pointer;
 }
 
-.modal-content form {
-  display: flex;
-  flex-direction: column;
+/* Autres styles pour les tables et sections */
+.results-table {
+width: 100%;
+border-collapse: collapse;
+margin-bottom: 20px;
 }
 
-.modal-content label {
-  margin-bottom: 5px;
+.results-table th,
+.results-table td {
+border: 1px solid #ddd;
+padding: 8px;
 }
 
-.modal-content input {
-  margin-bottom: 15px;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.modal-content button {
-  padding: 10px;
-  background-color: #4CAF50;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.modal-content button:hover {
-  background-color: #45a049;
-}
-
-/* Success highlighting */
-.success {
-  border-color: green;
-  background-color: #ddffdd;
-}
-
-/* Error highlighting */
-.error {
-  border-color: red;
-  background-color: #ffdddd;
-}
-
-/* Competitor background colors */
-.competitor {
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-}
-
-.competitor.green {
-  background-color: #ddffdd;
-}
-
-.competitor.white {
-  background-color: #ffffff; /* Ensure this class is defined */
+.results-table th {
+background-color: #145a8d;
 }
