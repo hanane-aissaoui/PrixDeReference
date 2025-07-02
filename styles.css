@@ -1,0 +1,235 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: #fffcfc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 1500px;
+  padding: 110px;
+}
+
+header {
+  text-align: center;
+}
+
+header h1 {
+  color: #4a8a4a;
+  margin-bottom: 40px;
+}
+
+.radio-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.radio-buttons label {
+  margin-right: 30px;
+}
+
+.estimation, .reference-price {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.estimation label {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 9px;
+}
+
+.estimation input {
+  width: 50%;
+  padding: 8px;
+  border: 3px solid #ccc;
+  border-radius: 8px;
+}
+
+.reference-price {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.price {
+  color: #000000;
+}
+
+.competitors {
+  margin-bottom: 20px;
+}
+
+.add-competitor {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.competitor {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.competitor span {
+  flex: 1;
+  text-align: center;
+}
+
+.competitor .rank {
+  flex: 0 0 30px;
+}
+
+.competitor .deviation {
+  color: #d32f2f;
+}
+
+.competitor .delete-btn {
+  background: none;
+  border: none;
+  color: #000000;
+  cursor: pointer;
+}
+.competitor.new {
+  background-color: #ffffff; /* White color for new competitors */
+}
+
+.removed {
+  background-color: #ffffff;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+footer button {
+  padding: 10px;
+  width: 48%;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+footer .calculate {
+  background-color: #e3e2e2;
+  color: #000;
+}
+
+footer .initialize {
+  background-color: #e3e2e2;
+  color: #000;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-content label {
+  margin-bottom: 5px;
+}
+
+.modal-content input {
+  margin-bottom: 15px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.modal-content button {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background-color: #45a049;
+}
+
+/* Success highlighting */
+.success {
+  border-color: green;
+  background-color: #ddffdd;
+}
+
+/* Error highlighting */
+.error {
+  border-color: red;
+  background-color: #ffdddd;
+}
+
+/* Competitor background colors */
+.competitor {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.competitor.green {
+  background-color: #ddffdd;
+}
+
+.competitor.white {
+  background-color: #ffffff; /* Ensure this class is defined */
+}

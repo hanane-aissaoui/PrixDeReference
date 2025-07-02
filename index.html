@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Calculer Prix De Référence</h1>
+            <div class="radio-buttons">
+              
+                <label>
+                  <input type="radio" name="type" value="travaux" id="travaux"> Travaux
+                  <input type="radio" name="type" value="autres" id="services"> Autres
+                </label>
+            </div>
+            <div class="estimation">
+                <label for="estimation">Estimation</label>
+                <input type="number" id="estimation" required>
+                <span>MAD</span>
+            </div>
+            <div class="reference-price">
+                <span>Prix référence</span>
+                <span class="price" id="reference-price">- MAD</span>
+            </div>
+        </header>
+        <div class="competitors">
+            <button class="add-competitor" id="add-competitor-btn">Ajouter Concurrent</button>
+            <div id="competitors-list"></div>
+        </div>
+        <footer>
+            <button class="calculate" id="calculate-btn">Calculer</button>
+            <button class="initialize" id="initialize-btn">Initialiser</button>
+        </footer>
+    </div>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-modal-btn">&times;</span>
+            <form id="competitor-form">
+                <label for="competitor-name">Le nom de concurrent</label>
+                <input type="text" id="competitor-name" required>
+                <label for="competitor-bid">L'offre financière</label>
+                <input type="number" id="competitor-bid" required>
+                <span>MAD</span>
+                <button type="submit">Ajouter</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
