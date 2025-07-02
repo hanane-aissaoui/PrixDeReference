@@ -3,39 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prix De Référence</title>
+    <title>Prix de Référence</title>
     <link rel="icon" href="logo.png" type="image/png">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Calculer Prix De Référence</h1>
+            <h1>Evaluation des offres financières des concurrents</h1>
             <div class="radio-buttons">
-              
+                <p class="radio-buttons-txt">Nature de Prestation</p>
                 <label>
-                  <input type="radio" name="type" value="travaux" id="travaux"> Travaux
-                  <input type="radio" name="type" value="autres" id="services"> Autres
+                    <input type="radio" name="type" value="travaux" id="travaux"> Travaux
+                </label>
+                <label>
+                    <input type="radio" name="type" value="autres" id="services"> Autres
                 </label>
             </div>
             <div class="estimation">
                 <label for="estimation">Estimation</label>
                 <input type="number" id="estimation" required>
-                <span>MAD</span>
-            </div>
-            <div class="reference-price">
-                <span>Prix référence</span>
-                <span class="price" id="reference-price">- MAD</span>
             </div>
         </header>
-        <div class="competitors">
+
+        <div class="competitors-section">
+            <table class="competitors-table">
+                <thead>
+                    <tr>
+                        <!-- En-têtes de colonnes si nécessaires -->
+                    </tr>
+                </thead>
+                <tbody id="competitors-list">
+                    <!-- Contenu dynamique ici -->
+                </tbody>
+            </table>
             <button class="add-competitor" id="add-competitor-btn">Ajouter Concurrent</button>
-            <div id="competitors-list"></div>
         </div>
+
+        <div class="results" id="results" style="display: none;">
+            <table id="offres-exces" class="results-table">
+                <thead>
+                    <tr>
+                        <th colspan="2">Offres Excessive</th>
+                    </tr>
+                </thead>
+                <tbody id="exces-list">
+                    <!-- Contenu dynamique ici -->
+                </tbody>
+            </table>
+            <table id="offres-anorm-basse" class="results-table">
+                <thead>
+                    <tr>
+                        <th colspan="2">Offres Anormalement Basse</th>
+                    </tr>
+                </thead>
+                <tbody id="anorm-basse-list">
+                    <!-- Contenu dynamique ici -->
+                </tbody>
+            </table>
+            <div class="reference-price">
+                <span>Prix Référence:</span>
+                <span class="price" id="reference-price">-</span>
+            </div>
+            <h2>Classement des Offres</h2>
+            <table id="classement-offres" class="results-table">
+                <thead>
+                    <tr>
+                        <th>Rang</th>
+                        <th>Nom du Concurrent</th>
+                        <th>Offre Financière</th>
+                        <th>Écart</th>
+                    </tr>
+                </thead>
+                <tbody id="classement-list">
+                    <!-- Contenu dynamique ici -->
+                </tbody>
+            </table>
+            <!-- Message pour l'offre la plus proche du prix de référence -->
+            <div id="closest-offer-message" style="margin-top: 20px; font-weight: bold;"></div>
+        </div>
+        
         <footer>
-            <button class="calculate" id="calculate-btn">Calculer</button>
-            <button class="initialize" id="initialize-btn">Initialiser</button>
+            <div class="footer-buttons">
+                <button id="calculate-btn" class="calculate">Calculer</button>
+                <button id="initialize-btn" class="initialize">Initialiser</button>
+            </div>
         </footer>
+        
     </div>
 
     <div class="modal" id="modal">
@@ -45,12 +99,12 @@
                 <label for="competitor-name">Le nom de concurrent</label>
                 <input type="text" id="competitor-name" required>
                 <label for="competitor-bid">L'offre financière</label>
-                <input type="number" id="competitor-bid" required>
-                <span>MAD</span>
+                <input type="number" id="competitor-bid" step="0.01" required>
                 <button type="submit">Ajouter</button>
             </form>
         </div>
     </div>
+    <p>© 2025 Aissaoui Hanane. Tous droits réservés.</p>
 
     <script src="script.js"></script>
 </body>
